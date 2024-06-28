@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess&Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+</head>
+<body>
+  <div class="container">
+    <div class="login-screen" id="loginScreen">
+      <header>
+        
+        <h1>Chess&Puzzle</h1>
+        <i class="fa-solid fa-chess-board icon"></i>
+      </header>
+      
+      <div class="login-form">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+      </div>
+    </div>
+    <div class="levels-screen" id="levelsScreen" style="display: none;">
+      <header>
+        <h1>Choose Level</h1>
+      </header>
+      <div class="levels">
+        <button class="level" onclick="startLevel('starter')">Starter</button>
+        <button class="level" onclick="startLevel('intermediate')">Intermediate</button>
+        <button class="level" onclick="startLevel('advanced')">Advanced</button>
+      </div>
+    </div>
+    <div class="main-menu-screen" id="mainMenuScreen" style="display: none;">
+      <div class="top-bar">
+        <p id="usernameDisplay"></p>
+        <p id="tokenDisplay">Tokens: 0</p>
+      </div>
+      <header>
+        <h1>Main Menu</h1>
+      </header>
+      <div class="main-menu">
+        <button class="main-menu-button" onclick="showLearn()">Learn</button>
+        <button class="main-menu-button" onclick="showPuzzles()">Puzzle</button>
+        <button class="main-menu-button" onclick="showPvP()">PvP</button>
+        <button class="main-menu-button" onclick="showExchange()">Exchange</button>
+      </div>
+      <button class="back-button" onclick="returnToLogin()">Return to Login Screen</button>
+    </div>
+    <div class="learn-screen" id="learnScreen" style="display: none;">
+      <header>
+        <h1>Learn</h1>
+      </header>
+      <div class="levels">
+        <button class="level" onclick="learn('howToPlay')">How to play</button>
+        <button class="level" onclick="learn('opening')">Opening</button>
+        <button class="level" onclick="learn('ending')">Ending</button>
+      </div>
+      <button class="back-button" onclick="backToMainMenu()">Back</button>
+    </div>
+    <div class="puzzles-screen" id="puzzlesScreen" style="display: none;">
+      <div class="top-bar">
+        <p id="tokenDisplay">Tokens: 0</p>
+      </div>
+      <header>
+        <h1>Choose Puzzle Type</h1>
+      </header>
+      <div class="levels">
+        <button class="level" onclick="startPuzzle('tactical')">Tactical</button>
+        <button class="level" onclick="startPuzzle('positional')">Positional</button>
+        <button class="level" onclick="startPuzzle('endgame')">Endgame</button>
+      </div>
+      <button class="back-button" onclick="backToMainMenu()">Back</button>
+    </div>
+    <div class="game-screen" id="gameScreen" style="display: none;">
+      <div class="top-bar">
+        <p id="tokenDisplay">Tokens: 0</p>
+      </div>
+      <div class="game">
+        <div id="board"></div>
+        <div class="info">
+          <p id="status">Select a level to start</p>
+          <button id="nextPuzzle" onclick="nextPuzzle()">Next Puzzle</button>
+        </div>
+        <button class="back-button" onclick="backToPuzzlesScreen()">Back</button>
+      </div>
+    </div>
+    <div class="exchange-screen" id="exchangeScreen" style="display: none;">
+      <div class="top-bar">
+        <p id="usernameDisplay"></p>
+        <p id="tokenDisplay">Tokens: 0</p>
+      </div>
+      <header>
+        <h1>Exchange Tokens</h1>
+      </header>
+      <div class="exchange-options">
+        <button class="exchange-option" onclick="exchangeTokens(1000, 'timeWithPro')">1k Tokens: Time with pro</button>
+        <button class="exchange-option" onclick="exchangeTokens(5000, 'nft')">5k Tokens: NFT</button>
+        <button class="exchange-option" onclick="exchangeTokens(250, 'vip')">250 Tokens: 3 months VIP</button>
+      </div>
+      <div class="pro-options" id="proOptions" style="display: none;">
+        <button class="exchange-option" onclick="choosePro('top1')">Top 1</button>
+        <button class="exchange-option" onclick="choosePro('top2')">Top 2</button>
+        <button class="exchange-option" onclick="choosePro('top3')">Top 3</button>
+      </div>
+      <button class="back-button" onclick="backToMainMenu()">Back</button>
+    </div>
+    <div class="pvp-screen" id="pvpScreen" style="display: none;">
+      <div class="top-bar">
+        <p id="usernameDisplay"></p>
+        <p id="tokenDisplay">Tokens: 0</p>
+      </div>
+      <header>
+        <h1>Player vs Player</h1>
+      </header>
+      <div class="levels">
+        <button class="level" onclick="playWith('player1')">Player 1</button>
+        <button class="level" onclick="playWith('player2')">Player 2</button>
+        <button class="level" onclick="playWith('player3')">Player 3</button>
+      </div>
+      <button class="back-button" onclick="backToMainMenu()">Back</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
